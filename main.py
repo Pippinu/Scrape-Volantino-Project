@@ -13,5 +13,10 @@ cleanList = dict()
 
 scrapeProducts(listaProdotti, cleanList, shops)
 saveAsJSON(cleanList)
-d = ricercaProdotto(input('Inserire prodotto: '))
-print(d)
+
+while(1):
+    d = ricercaProdotto(input('Inserire prodotto: '))
+    print(d)
+    
+
+
