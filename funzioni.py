@@ -1,3 +1,4 @@
+from typing import final
 import requests
 import json
 import csv
@@ -40,7 +41,6 @@ def saveAsCSV(product_dict):
         f_object.close()
 
 def saveAsJSON(product_dict):
-
     with open('offerte.json', 'w') as f:
         json.dump(product_dict, f)
 
@@ -61,3 +61,9 @@ def ricercaProdotto(product):
         f.close()
 
     return matched_dict
+
+def saveProductAsJSON(product):
+    with open('products.json', 'w') as f:
+        json.dump(product, f, indent=2)
+
+        f.close()

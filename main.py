@@ -15,5 +15,9 @@ scrapeProducts(listaProdotti, cleanList, shops)
 saveAsJSON(cleanList)
 
 while(1):
-    d = ricercaProdotto(input('Inserire prodotto: '))
-    print(json.dumps(d, indent=2))
+    product = input('Inserire prodotto, invia 0 per uscire: ')
+    if(product == 0 or product == "0"): break
+    
+    saveProductAsJSON(ricercaProdotto(product))
+    
+    
