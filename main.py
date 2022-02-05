@@ -1,6 +1,6 @@
 from soupsieve import match
 from funzioni import *
-import re
+import json
 
 shops = list()
 
@@ -16,7 +16,4 @@ saveAsJSON(cleanList)
 
 while(1):
     d = ricercaProdotto(input('Inserire prodotto: '))
-    print(d)
-    
-
-
+    print(json.dumps(d, indent=2))

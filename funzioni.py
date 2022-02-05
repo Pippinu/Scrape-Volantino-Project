@@ -15,11 +15,15 @@ def scrapeProducts(raw_dict, clean_dict, shops):
         for item in res:
             CT = item.contents[0]
             newItem = json.loads(CT)
-            raw_dict[newItem['name']] = {key: newItem[key] for key in newItem.keys() & {'offers'}}
+            # Prende dalla entry del prodotto i campi image (link all'immagine dell'offerta) e offers (dati dell'offerta)
+            raw_dict[newItem['name']] = {
+                key: newItem[key] for key in newItem.keys() & ({'image'} | {'offers'})
+            }
+
 
         for k,v in raw_dict.items():
             # print(k,v)
-            clean_dict[k] = {'prezzo': v['offers']['price'], 'supermercato': v['offers']['seller']['name']}
+            clean_dict[k] = {'prezzo': v['offers']['price'], 'supermercato': v['offers']['seller']['name'], 'link': v['image']}
 
 def saveAsCSV(product_dict):
     from csv import writer
