@@ -23,7 +23,7 @@ def scrapeProducts(raw_dict, clean_dict, shops):
 
         for k,v in raw_dict.items():
             # print(k,v)
-            clean_dict[k] = {'prezzo': v['offers']['price'], 'supermercato': v['offers']['seller']['name'], 'link': v['image']}
+            clean_dict[k] = {'prezzo': v['offers']['price'], 'supermercato': v['offers']['seller']['name'], 'link': v['image'][0]}
 
 def saveAsCSV(product_dict):
     from csv import writer
